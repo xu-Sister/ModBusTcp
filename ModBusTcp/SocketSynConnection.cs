@@ -122,7 +122,7 @@ namespace ModBusTcp
         {
             if (IsSocketConnected(theSocket))
             {
-                return SocketSend(sendArray);
+                return SocketSend(sendArray); 
             }
             return false;
         }
