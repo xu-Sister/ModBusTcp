@@ -104,10 +104,15 @@ namespace ModBusTcp
             {
                 while (state)
                 {
+                    Transf = null;
                     int tr = theSocket.Receive(buffer);
                     if (tr > 0)
                     {
-                        Transf = Encoding.ASCII.GetString(buffer);
+                        int length = buffer[8];
+                        for (int i = 9; i < 9 + length;i++)
+                        {
+                            Transf += buffer[i].ToString("X2");
+                        }
                     }
                     Form1.form.OutPutText.Text += remoteHost + ": " + Transf + " " + DateTime.Now.ToString() + "\r\n";
                 }

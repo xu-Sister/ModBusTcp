@@ -59,7 +59,7 @@ namespace ModBusTcp
                 int IPort = int.Parse(portBox.Text);
 
                 socketSynConnection = new SocketSynConnection(IPAddress, IPort, theSocket);
-                if (!transf)
+                if (transf)
                 {
                     Com(addBox.Text, orderBox.Text, startBox.Text, LengthBox.Text);
 
